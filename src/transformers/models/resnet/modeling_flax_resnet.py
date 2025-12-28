@@ -185,8 +185,8 @@ class FlaxResNetBasicLayerCollection(nn.Module):
 
     def setup(self):
         self.layer = [
-            FlaxResNetConvLayer(self.out_channels, stride=self.stride, dtype=self.dtype),
-            FlaxResNetConvLayer(self.out_channels, activation=None, dtype=self.dtype),
+            FlaxResNetConvLayer(self.out_channels, stride=self.stride, dtype=self.dtype, name="0"),
+            FlaxResNetConvLayer(self.out_channels, activation=None, dtype=self.dtype, name="1"),
         ]
 
     def __call__(self, hidden_state: jnp.ndarray, deterministic: bool = True) -> jnp.ndarray:
